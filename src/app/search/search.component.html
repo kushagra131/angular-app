@@ -1,0 +1,40 @@
+<div>
+  <form class="example-form">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Countries</mat-label>
+      <input
+        type="text"
+        placeholder="Pick one"
+        aria-label="Search Countries"
+        matInput
+        [formControl]="myControl"
+        [matAutocomplete]="auto"
+      />
+      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+        <mat-option *ngFor="let country of filteredCountries | async" [value]="country">
+          {{ country }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+</div>
+
+<!-- <div
+  style="
+    text-align: center;
+    margin-top: 15%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 25px;
+  "
+>
+  <input
+    style="border-radius: 10px; width: 50%; height: 40px"
+    type="text"
+    [(ngModel)]="inputText"
+    (ngModelChange)="filterCountries($event)"
+    placeholder="Search"
+  />
+  <div *ngIf="matchedCountries">
+    {{ matchedCountries }}
+  </div>
+</div> -->
